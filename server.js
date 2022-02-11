@@ -12,6 +12,8 @@ const mongoose = require('mongoose');
 // const deleteBook = require('./handlers/deleteBook');
 // const updateBook = require('./handlers/updateBook');
 // const getUser = require('./handlers/getUser');
+const getBooksFromAPI = require('./handlers/getBooksFromAPI');
+const getMoviesFromAPI = require('./handlers/getMoviesFromAPI');
 
 
 const app = express();
@@ -21,7 +23,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3002;
 
 // making a database called books-database
-mongoose.connect(process.env.DB_URI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -29,6 +31,8 @@ db.once('open', function() {
   console.log('Mongoose is connected')
 });
 
+app.get('/searchBooks', getBooksFromAPI)
+app.get('/searchMovies', getMoviesFromAPI)
 // app.get('/books', getBooks);
 // app.post('/books', addBook);
 // app.delete('/books/:id', deleteBook);
