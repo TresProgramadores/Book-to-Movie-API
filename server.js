@@ -1,14 +1,12 @@
-
-   
 'use strict';
 
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-// const Book = require('./models/bookModel.js');
-// const getBooks = require('./handlers/getBooks');
-const addBook = require('./handlers/addBook');
+const Book = require('./classes/Book.js');
+const getBooks = require('./handlers/getBooks');
+// const addBook = require('./handlers/addBook');
 // const deleteBook = require('./handlers/deleteBook');
 // const updateBook = require('./handlers/updateBook');
 // const getUser = require('./handlers/getUser');
@@ -38,5 +36,7 @@ app.post('/books', addBook);
 // app.delete('/books/:id', deleteBook);
 // app.put('/books/:id', updateBook)
 // app.get('/user', getUser)
+
+// console.log(getBooks);
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));

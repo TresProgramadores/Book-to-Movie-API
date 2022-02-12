@@ -3,7 +3,7 @@ const verifyUser = require('../auth.js')
 
 const mongoose = require('mongoose');
 const Book = require("../models/bookModel");
-mongoose.connect(process.env.DB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 
 let getBooks = async (req, res) => {
 
