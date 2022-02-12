@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 const Book = require("../models/bookModel");
-mongoose.connect(process.env.DB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 const verifyUser = require('../auth.js')
 
 let deleteBook = async (req, res) => {
