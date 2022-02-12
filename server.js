@@ -8,7 +8,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 // const Book = require('./models/bookModel.js');
 // const getBooks = require('./handlers/getBooks');
-// const addBook = require('./handlers/addBook');
+const addBook = require('./handlers/addBook');
 // const deleteBook = require('./handlers/deleteBook');
 // const updateBook = require('./handlers/updateBook');
 // const getUser = require('./handlers/getUser');
@@ -34,7 +34,7 @@ db.once('open', function() {
 app.get('/searchBooks', getBooksFromAPI)
 app.get('/searchMovies', getMoviesFromAPI)
 // app.get('/books', getBooks);
-// app.post('/books', addBook);
+app.post('/books', addBook);
 // app.delete('/books/:id', deleteBook);
 // app.put('/books/:id', updateBook)
 // app.get('/user', getUser)
