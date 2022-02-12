@@ -5,22 +5,22 @@ require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URI);
 
-const Book = require('./models/bookModel');
+const Movie = require('./models/movieModel');
 
 const seed = async () => {
-  const myBook = new Book({
+  const myMovie = new Movie({
     title: 'Harry Potter',
     description: 'wands and magic',
     status: 'available',
     email: 'sergey.otryshko@gmail.com'
   });
-  myBook.save(function (err) {
+  myMovie.save(function (err) {
     if (err) console.log(err);
     else console.log('saved Harry Potter');
   });
 
   try {
-    await Book.create({
+    await Movie.create({
       title: 'Lord of the Rings',
       description: 'hobbits and orcs',
       status: 'not available',
@@ -32,7 +32,7 @@ const seed = async () => {
   }
 
   try {
-    await Book.create({
+    await Movie.create({
       title: 'Forgotten Realms',
       description: 'elves and dwarves',
       status: 'available',
