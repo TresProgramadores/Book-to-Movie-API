@@ -2,10 +2,10 @@
 const verifyUser = require('../auth.js')
 
 const mongoose = require('mongoose');
-const Book = require("../models/bookModel");
+const Movie = require("../models/movieModel");
 mongoose.connect(process.env.MONGODB_URI);
 
-let getBooks = async (req, res) => {
+let getMovies = async (req, res) => {
 
   verifyUser(req, async (err, user) => {
     if (err) {
@@ -13,9 +13,9 @@ let getBooks = async (req, res) => {
     } else {
       try {
         //let booksFromDB = await Book.find({}); find all objects
-        let booksFromDB = await Book.find({ email: user.email });
-        if (booksFromDB) res.status(200).send(booksFromDB);
-        else res.status(404).send('no books found');
+        let moviesFromDB = await Movie.find({ email: user.email });
+        if (moviesFromDB) res.status(200).send(moviesFromDB);
+        else res.status(404).send('no movies found');
       } catch (err) {
         console.error(err);
         res.status(500).send('server error');
@@ -24,4 +24,4 @@ let getBooks = async (req, res) => {
   })
 }
 
-module.exports = getBooks;
+module.exports = getMovies;
