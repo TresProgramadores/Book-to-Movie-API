@@ -12,6 +12,7 @@ const getMovies = require('./handlers/getMovies');
 const addBook = require('./handlers/addBook');
 const addMovie = require('./handlers/addMovie');
 const deleteBook = require('./handlers/deleteBook');
+const deleteMovie = require('./handlers/deleteMovie');
 // const updateBook = require('./handlers/updateBook');
 // const getUser = require('./handlers/getUser');
 const getBooksFromAPI = require('./handlers/getBooksFromAPI');
@@ -40,6 +41,7 @@ app.get('/movies', getMovies);
 app.post('/books', addBook);
 app.post('/movies', addMovie);
 app.delete('/books/:id', deleteBook);
+app.delete('/movies/:id', deleteMovie);
 // app.put('/books/:id', updateBook)
 // app.get('/user', getUser)
 
