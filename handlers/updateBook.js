@@ -3,14 +3,16 @@ const verifyUser = require('../auth.js')
 
 const mongoose = require('mongoose');
 const Book = require("../models/bookModel");
-mongoose.connect(process.env.DB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 
 let updateBook = async (req, res) => {
+  console.log('movie updating')
   verifyUser(req, async (err, user) => {
     if (err) {
       res.send('invalid token');
     } else {
       try {
+        console.log('book body', req.body)
         const book = await Book.findOne({ _id: req.params.id, email: user.email })
         if (!book) res.status(400).send('unable to update book');
         else {
