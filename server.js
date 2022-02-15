@@ -6,14 +6,14 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-// const Book = require('./models/bookModel.js');
 const getBooks = require('./handlers/getBooks');
 const getMovies = require('./handlers/getMovies');
 const addBook = require('./handlers/addBook');
 const addMovie = require('./handlers/addMovie');
 const deleteBook = require('./handlers/deleteBook');
 const deleteMovie = require('./handlers/deleteMovie');
-// const updateBook = require('./handlers/updateBook');
+const updateBook = require('./handlers/updateBook');
+const updateMovie = require('./handlers/updateMovie');
 // const getUser = require('./handlers/getUser');
 const getBooksFromAPI = require('./handlers/getBooksFromAPI');
 const getMoviesFromAPI = require('./handlers/getMoviesFromAPI');
@@ -42,7 +42,8 @@ app.post('/books', addBook);
 app.post('/movies', addMovie);
 app.delete('/books/:id', deleteBook);
 app.delete('/movies/:id', deleteMovie);
-// app.put('/books/:id', updateBook)
+app.put('/books/:id', updateBook)
+app.put('/movies/:id', updateMovie)
 // app.get('/user', getUser)
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
